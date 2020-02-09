@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{ STATIC_URL }}/static/archive.css">
+    <title>Архив статей</title>
+  </head>
+  <body>
+    <div class="header">
+      <img src="{{ STATIC_URL }}/static/img/logo.png", alt="Django public blog" />
+    </div>
+    <div class="archive">
+      {% for post in posts %}
+        <div class="one-post">
+          <a class="post-title", href="http://127.0.0.1:8000/article/{{ post.id }}">
+            <h4>{{ post.title }}</h4>
+          </a>
+          <div class="article-info">
+            <div class="article-author">{{ post.author.username }}</div>
+            <div class="article-created-date">{{ post.created_date }}</div>
+          </div>
+          <p class="article-text">{{ post.get_excerpt }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>
