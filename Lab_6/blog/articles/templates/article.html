@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{ STATIC_URL }}/static/article.css">
+    <title>Статья</title>
+  </head>
+  <body>
+    <div class="header">
+      <img src="{{ STATIC_URL }}/static/img/logo.png", alt="Django public blog"/>
+      <a href="http://127.0.0.1:8000/sign_up/">
+        <h4>Зарегестрироваться</h4>
+      </a>
+      <a href="http://127.0.0.1:8000/home/">
+        <h4>Все статьи</h4>
+      </a>
+    </div>
+    <div class="article">
+        <div class="one-post">
+          <h1 class="post-title">{{ post.title }}</h1>
+          <div class="article-info">
+            <div class="article-author">{{ post.author.username }}</div>
+            <div class="article-created-date">{{ post.created_date }}</div>
+          </div>
+          <p class="article-text">{{ post.get_excerpt }}</p>
+        </div>
+    </div>
+  </body>
+</html>

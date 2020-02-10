@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="{{STATIC_URL}}/static/sign.css">
+  </head>
+  <body>
+    <div class="limiter">
+      <div class="conteiner">
+        <form class="login_form" method="post">{% csrf_token %}
+          <span class="login_form_title">Регистрация</span>
+          <div class="login_form_input">
+            <input type="text" name="username" placeholder="Логин"
+                    value="{{ form.username }}">
+          </div>
+          <div class="login_form_input">
+            <input type="text" name="email" placeholder="Почта"
+                    value="{{ form.email }}">
+          </div>
+          <div class="login_form_input">
+            <input type="password" name="first_password" placeholder="Пароль"
+                    value="">
+          </div>
+          <div class="login_form_input">
+            <input type="password" name="second_password" placeholder="Повторите пароль"
+                    value="">
+          </div>
+          <div class="login_form_button">
+            <button class="login_button">Войти</button>
+          </div>
+          <div class="login_form_sign">
+            <span>Уже есть аккаунт?</span>
+            <a href="http://127.0.0.1:8000/sign_in/">Авторизироваться</a>
+          </div>
+          <div class="form_error">
+            {{ form.errors }}
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
